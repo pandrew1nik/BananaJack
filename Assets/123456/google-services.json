@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "614468401272",
+    "firebase_url": "https://banana-jack.firebaseio.com",
+    "project_id": "banana-jack",
+    "storage_bucket": "banana-jack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614468401272:android:4f895aba60190269b6158d",
+        "android_client_info": {
+          "package_name": "com.FUGAS.BananaJack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614468401272-jg4eqvr3611lgnvcs0vvif9udaj8rta0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdwoCUW-P769O2CJ5ah1ZtdtYdQcxIseg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614468401272-jg4eqvr3611lgnvcs0vvif9udaj8rta0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
