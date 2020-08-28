@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,16 +8,22 @@ public class Game8 : MonoBehaviour
     public GameObject finish;
     private InterstitialAds InterstitialAds;
 
-    [SerializeField] private string _sceneName;
+    [SerializeField] private
+        string _sceneName;
+
+    public int nextScene;
+
     public void Start()
     {
+        nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        Debug.Log("[IntAd] Initing interstitial in finish...");
         InterstitialAds = FindObjectOfType<InterstitialAds>();
-        InterstitialAds.IninInerstitialAd();
+        InterstitialAds.InitInerstitialAd();
     }
 
     public void Update()
     {
-        finish.SetActive(character.Portal == 1);
+        finish.SetActive(character.Portal >= 1);
     }
 
     private void LoadNewScene()
@@ -26,12 +31,17 @@ public class Game8 : MonoBehaviour
         SceneManager.LoadScene(_sceneName);
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            InterstitialAds.GameOver();
+            Debug.Log("[IntAd] Showing ad in finish...");
+            InterstitialAds.ShowAd();
             LoadNewScene();
+            if (nextScene > PlayerPrefs.GetInt("levelAt"))
+            {
+                PlayerPrefs.SetInt("levelAt", nextScene);
+            }
         }
     }
 }

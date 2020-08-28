@@ -90,10 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2543255928820025543}
-  - component: {fileID: 2543255928820025542}
-  - component: {fileID: 2543255928820025541}
   - component: {fileID: 2543255928820025540}
-  - component: {fileID: 1995436506943197410}
   - component: {fileID: 1995436506943197415}
   - component: {fileID: 1995436506943197412}
   - component: {fileID: 2543255928820025551}
@@ -123,48 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2543255928820025542
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2543255928820025536}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.16833305, y: -0.20470035}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6808729, y: 1.6335404}
-  m_EdgeRadius: 0
---- !u!58 &2543255928820025541
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2543255928820025536}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.15033078, y: -0.88761306}
-  serializedVersion: 2
-  m_Radius: 0.2511661
 --- !u!50 &2543255928820025540
 Rigidbody2D:
   serializedVersion: 4
@@ -177,7 +132,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.7295525
+  m_Mass: 0.7337997
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -186,22 +141,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1995436506943197410
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2543255928820025536}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.15878534, y: -0.2552173}
-  m_Size: {x: 0.6384287, y: 1.7384868}
-  m_Direction: 0
 --- !u!114 &1995436506943197415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,19 +253,27 @@ PolygonCollider2D:
       - {x: -0.30600452, y: 0.72318983}
       - {x: -0.37370014, y: 0.644773}
       - {x: -0.43026924, y: 0.4971161}
+      - {x: -0.4717512, y: 0.28689575}
       - {x: -0.4849949, y: 0.19776058}
-      - {x: -0.48708344, y: 0.02025652}
+      - {x: -0.4917078, y: 0.0624609}
+      - {x: -0.48911762, y: 0.02025652}
+      - {x: -0.47931767, y: -0.053592682}
       - {x: -0.4621048, y: -0.123283386}
+      - {x: -0.45507526, y: -0.15891314}
+      - {x: -0.43223953, y: -0.23486376}
+      - {x: -0.41505432, y: -0.30102777}
       - {x: -0.3766346, y: -0.3922577}
-      - {x: -0.27681065, y: -0.57686806}
+      - {x: -0.2849474, y: -0.5789027}
       - {x: -0.23281574, y: -0.65772676}
-      - {x: -0.19674587, y: -0.6892948}
+      - {x: -0.19811726, y: -0.69203806}
+      - {x: -0.1601572, y: -0.72997856}
       - {x: -0.10706329, y: -0.7744012}
       - {x: -0.043229103, y: -0.8143344}
       - {x: -0.004345894, y: -0.8292732}
       - {x: 0.034101963, y: -0.8419113}
-      - {x: 0.093063354, y: -0.85475063}
-      - {x: 0.14295053, y: -0.69474316}
+      - {x: 0.09010267, y: -0.8523817}
+      - {x: 0.14796734, y: -0.7030091}
+      - {x: 0.12743902, y: -0.6792288}
       - {x: 0.11166382, y: -0.610507}
       - {x: 0.09106827, y: -0.4530697}
       - {x: 0.07259464, y: -0.25263643}
@@ -444,6 +391,7 @@ MonoBehaviour:
   character: {fileID: 1995436506943197415}
   finish: {fileID: 0}
   _sceneName: 
+  nextScene: 0
 --- !u!1 &8400194544843620978
 GameObject:
   m_ObjectHideFlags: 0

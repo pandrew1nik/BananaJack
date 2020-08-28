@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3715260581012540741}
   m_Layer: 0
   m_Name: Death
-  m_TagString: Untagged
+  m_TagString: death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  respawn: {fileID: 0}
+  AD: {fileID: 0}
+  controls: {fileID: 0}
+  lives: {fileID: 0}
 --- !u!1 &505276165748759073
 GameObject:
   m_ObjectHideFlags: 0

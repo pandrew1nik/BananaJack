@@ -1,24 +1,26 @@
 ﻿using System;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using System.Collections;
 
 public class InterstitialAds : MonoBehaviour
 {
-    private InterstitialAd interstitial;
+    public InterstitialAd interstitial;
 
-    public void IninInerstitialAd()
+    public void InitInerstitialAd()
     {
+        Debug.Log("[IntAd] Initing ad engine...");
         MobileAds.Initialize(initStatus => { });
-        this.RequestInterstitial();
+        Debug.Log("[IntAd] Initing ad request...");
+        StartCoroutine(RequestInterstitial());
     }
 
-
-    private void RequestInterstitial()
+    private IEnumerator RequestInterstitial()
     {
 #if UNITY_ANDROID
                     string adUnitId = "ca-app-pub-2618512662549592/2570389720";
 //#elif UNITY_IPHONE
-//                    string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+//                  string adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
         string adUnitId = "unexpected_platform";
 #endif
@@ -40,7 +42,10 @@ public class InterstitialAds : MonoBehaviour
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
+        yield return new WaitForSeconds(1f);
+        Debug.Log("[IntAd] Requesting ad...");
         this.interstitial.LoadAd(request);
+        yield return new WaitForSeconds(3f);
     }
 
     public void HandleOnAdLoaded(object sender, EventArgs args)
@@ -69,9 +74,18 @@ public class InterstitialAds : MonoBehaviour
         MonoBehaviour.print("HandleAdLeavingApplication event received");
     }
 
-    public void GameOver()  
+    public void ShowAd()
     {
+        if (!interstitial.IsLoaded())
+        {
+            Debug.Log("[IntAd] Waiting for ad...");
+            InitInerstitialAd();
+        }
+
         if (interstitial.IsLoaded())
+        {
+            Debug.Log("[IntAd] Showing ad...");
             interstitial.Show();
+        }
     }
 }

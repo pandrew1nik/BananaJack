@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float jumpForce = 15.0F;
     /*[SerializeField]*/ public /*static*/ int Score = 0;
     [SerializeField] private static int Parts = 0;
-    [SerializeField] public int Portal = 0;
+    /*[SerializeField]*/ public int Portal = 0;
 
     public bool FacingRight = true;
 
@@ -31,12 +31,15 @@ public class Character : MonoBehaviour
     public LayerMask groundLayer;
     public bool isTouchingGround;
 
-    public GameObject currentRespawn;
+    public Vector3 currentRespawn;
 
     AudioSource audio;
     public AudioClip coinsound;
 
     public Text text;
+
+    public GameObject Arrow;
+    public GameObject ADcanva;
 
     public static void Save()
     {
@@ -64,6 +67,7 @@ public class Character : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         text = GetComponent<Text>();
         audio = GetComponent<AudioSource>();
+        currentRespawn = gameObject.transform.localPosition;
     }
 
     public void Update()
@@ -72,6 +76,9 @@ public class Character : MonoBehaviour
         Movement();
         if (numOflives <= 0)
         {
+            Debug.Log("DIIIIIIIEEEEE");
+            dieScript die = GameObject.FindObjectOfType<dieScript>();
+            die.Death();
             lives = 5;
             numOflives = 5;
             Score = 0;
@@ -79,6 +86,12 @@ public class Character : MonoBehaviour
             Portal = 0;
             //audio.PlayOneShot(deathsound);
         }
+        Arrow.SetActive(Portal == 1);
+    }
+
+    public void SetToCheckpointPosition()
+    {
+        gameObject.transform.localPosition = currentRespawn;
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -108,12 +121,16 @@ public class Character : MonoBehaviour
             numOflives--;
 
         }
-        if (numOflives <= 0)
-        {
-            Application.LoadLevel(Application.loadedLevel);
-            lives = 5;
-            numOflives = 5;
-        }
+        //if (numOflives <= 0)
+        //{
+
+            
+        //    ////Application.LoadLevel(Application.loadedLevel);
+        //    //ADcanva.SetActive(true);
+        //    //this.transform.position = currentRespawn;
+        //    lives = 5;
+        //    numOflives = 5;
+        //}
 
         //if (col.gameObject.CompareTag("score"))
         //{
@@ -217,14 +234,22 @@ public class Character : MonoBehaviour
         //transform.localScale = Scale;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+ 
+
+    private void OnTriggerEnter2D(Collider2D cldr)
     {
-        if (collision.tag == "Checkpoint")
+        if (cldr.tag == "death")
         {
-            currentRespawn = collision.gameObject;
+            cldr.gameObject.GetComponent<dieScript>().Death();
+            
+            //Time.timeScale = 1f;
+        }
+        if (cldr.tag == "Checkpoint")
+        {
+            currentRespawn = cldr.gameObject.transform.localPosition;
             PlayerPrefs.SetFloat("xPos", transform.position.x);
             PlayerPrefs.SetFloat("yPos", transform.position.y);
-            Debug.Log(collision.gameObject.name);
+            Debug.Log("Checkpoint: " + currentRespawn);
         }
     }
 }

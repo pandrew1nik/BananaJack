@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using UnityEngine.UI;
 
 
 public class GoogleMobileAdsDemoScript : MonoBehaviour
@@ -139,6 +140,9 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     //    }
 
     private RewardedAd rewardedAd;
+    public GameObject controls;
+    public GameObject lives;
+    public GameObject player;
 
     public void Start()
     {
@@ -149,7 +153,19 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     {
         if (this.rewardedAd.IsLoaded())
         {
+            controls.SetActive(false);
+            lives.SetActive(false);
+            player.SetActive(false);
             this.rewardedAd.Show();
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            controls.SetActive(true);
+            lives.SetActive(true);
+            player.SetActive(true);
+            this.rewardedAd.Show();
+            Time.timeScale = 1f;
         }
     }
 
@@ -157,9 +173,9 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     {
         string adUnitId;
 #if UNITY_ANDROID
-                adUnitId = "ca-app-pub-3940256099942544/5224354917";
-#elif UNITY_IPHONE
-                adUnitId = "ca-app-pub-3940256099942544/1712485313";
+                adUnitId = "ca-app-pub-2618512662549592/7439573025";
+//#elif UNITY_IPHONE
+//                adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
         adUnitId = "unexpected_platform";
 #endif
@@ -209,7 +225,7 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
-        transform.position = GetComponent<Character>().currentRespawn.transform.position;
+        transform.position = GetComponent<Character>().currentRespawn;
     }
 
 

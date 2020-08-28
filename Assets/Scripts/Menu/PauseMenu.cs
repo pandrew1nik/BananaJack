@@ -25,9 +25,7 @@ public class PauseMenu : MonoBehaviour
 
     public void HideMenu()
     {
-#pragma warning disable CS1717 // Проведено присвоение той же переменной; действительно выполнить такое назначение, а не иное?
         isOpened = isOpened;
-#pragma warning restore CS1717 // Проведено присвоение той же переменной; действительно выполнить такое назначение, а не иное?
         GetComponent<Canvas>().enabled = isOpened;
     }
 }

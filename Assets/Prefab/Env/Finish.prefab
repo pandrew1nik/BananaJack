@@ -43,7 +43,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.016403198, y: -0.03966379}
@@ -64,6 +64,7 @@ MonoBehaviour:
   character: {fileID: 0}
   finish: {fileID: 4047874988827366886}
   _sceneName: 
+  nextScene: 0
 --- !u!1 &4047874989397894724
 GameObject:
   m_ObjectHideFlags: 0

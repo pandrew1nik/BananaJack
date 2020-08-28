@@ -4,10 +4,10 @@ using System.Collections;
 
 public class Restart : MonoBehaviour
 {
-
     public void RestartGame()
     {
-        SceneManager.LoadScene("Game1"); // loads Game scene
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
