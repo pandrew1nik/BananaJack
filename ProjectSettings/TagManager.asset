@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - enemy
+  - live
+  - score
+  - finish
+  - lastfinish
+  - parts
+  - bullet
+  - lava
+  - ground
+  - cBullet
+  - boss
+  - Checkpoint
+  - death
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Turrel
+  - Stars
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 6592443
+    locked: 0
+  - name: Player
+    uniqueID: 2536317251
+    locked: 0
+  - name: ground
+    uniqueID: 2525110825
+    locked: 0
+  - name: Collectible
+    uniqueID: 3353306659
+    locked: 0
+  - name: Main UI
+    uniqueID: 422205207
+    locked: 0
